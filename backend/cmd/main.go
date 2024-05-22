@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/clschalkwyk/handly-v1/routes"
 	"github.com/labstack/echo/v4"
 	"net/http"
 	"os"
@@ -24,6 +25,8 @@ func main() {
 
 	e.GET("/health", healthCheck)
 
+	// Register Routes
+	routes.RegisterRoutes(e)
 	// Start server
 	port := os.Getenv("PORT")
 	if port == "" {
